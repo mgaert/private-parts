@@ -42,6 +42,7 @@
     "grunt-contrib-uglify": "~2.0.0",
     "grunt-autoprefixer": "~3.0.4",
     "grunt-autoshot": "~0.2.1",
+    "grunt-lesslint": "~3.2.0",
     "grunt-html-smoosher-install-fix": "~0.1.4"
   }
 }

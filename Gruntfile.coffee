@@ -16,6 +16,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-requirejs'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-autoprefixer'
+  grunt.loadNpmTasks 'grunt-lesslint'
 
   grunt.initConfig
     pkg: require './package.json'
@@ -96,6 +97,9 @@ module.exports = (grunt) ->
               src: 'main.html'
               dest: 'main.png'
             }]
+
+    lesslint:
+      src: 'assets/less/**/*.less'
 
     watch:
       options:
