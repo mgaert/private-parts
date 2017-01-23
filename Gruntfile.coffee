@@ -99,7 +99,9 @@ module.exports = (grunt) ->
             }]
 
     lesslint:
-      src: 'assets/less/**/*.less'
+      src: 'assets/less/framework/main.less'
+      options:
+        imports: ['assets/less/**/*.less']
 
     watch:
       options:
