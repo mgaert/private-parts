@@ -14,49 +14,49 @@
       "name": "Contacts"
     , "emptyText": "We DON'T collect them."
     , "class": "contacts"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   , {
       "name": "Biometrics"
     , "emptyText": "We DON'T collect them."
     , "class": "biometrics"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   , {
       "name": "Health"
     , "emptyText": "We DON'T collect them."
     , "class": "health"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   , {
       "name": "Phone / Text Logs"
     , "emptyText": "We DON'T collect them."
     , "class": "phone-text-logs"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   , {
       "name": "Browser History"
     , "emptyText": "We DON'T collect them."
     , "class": "browser-history"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   , {
       "name": "Location"
     , "emptyText": "We DON'T collect them."
     , "class": "location"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   , {
       "name": "Financial Info"
     , "emptyText": "We DON'T collect them."
     , "class": "financial-info"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   , {
       "name": "User Files"
     , "emptyText": "We DON'T collect them."
     , "class": "user-files"
-    , "options": ["<p>A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two.</p>"]
+    , "options": ["A statement describing what you collect in this category and why your product needs to collect it. Limit yourself to just a sentence or two."]
     }
   ]
   , "shared": [
