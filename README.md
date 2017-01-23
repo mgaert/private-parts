@@ -21,8 +21,9 @@ The instructions below have been designed generically for 'developers' and 'lawy
 1. Fork this repo
 2. Clone it into your machine
 3. Install the dependencies with ``npm install`` (you need [node.js](http://nodejs.org/download/) to build Private Parts)
-4. Run ``grunt live``
-5. Go to [http://localhost:3333/build/html/](http://localhost:3333/build/html/) to see the default privacy policy running
+4. Install the grunt command line tools with ``npm install grunt-cli -g``
+5. Run ``grunt live``
+6. Go to [http://localhost:3333/build/html/](http://localhost:3333/build/html/) to see the default privacy policy running
 
 ### Usage
 

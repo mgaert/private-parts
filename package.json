@@ -22,7 +22,7 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "grunt-cli": "latest",
+    "grunt": "latest",
     "underscore": "latest",
     "grunt-bump": "0.8.0",
     "grunt-coffeelint": "latest",
