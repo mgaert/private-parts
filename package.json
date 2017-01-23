@@ -30,7 +30,6 @@
     "grunt-cli": "latest",
     "underscore": "latest",
     "grunt-bump": "0.8.0",
-    "grunt-blanket": "latest",
     "grunt-coffeelint": "latest",
     "grunt-docco-multi": "latest",
     "grunt-image-embed": "~0.3.3",
