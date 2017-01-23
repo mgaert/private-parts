@@ -31,6 +31,11 @@ module.exports = (grunt) ->
       dist:
         src: 'assets/js/framework/*.js'
         dest: 'assets/js/js.min.js'
+      live:
+        src: 'assets/js/framework/*.js'
+        dest: 'assets/js/js.min.js'
+        options:
+          beautify: true
 
     pug:
       compile:
@@ -102,6 +107,9 @@ module.exports = (grunt) ->
       src: 'assets/less/framework/main.less'
       options:
         imports: ['assets/less/**/*.less']
+        csslint:
+          'qualified-headings': false
+          'unique-headings': false
 
     watch:
       options:
@@ -151,6 +159,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'live', [
     'default'
+    'uglify:live'
     'connect'
     'watch'
   ]
@@ -165,5 +174,6 @@ module.exports = (grunt) ->
     'pug:release'
     'requirejs:css'
     'clean:dist'
+    'uglify:dist'
     'smoosher'
   ]
