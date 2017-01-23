@@ -7,7 +7,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-autoshot'
   grunt.loadNpmTasks 'grunt-image-embed'
   grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-jade'
+  grunt.loadNpmTasks 'grunt-contrib-pug'
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-watch'
@@ -31,21 +31,21 @@ module.exports = (grunt) ->
         src: 'assets/js/framework/*.js'
         dest: 'assets/js/js.min.js'
 
-    jade:
+    pug:
       compile:
         options:
           data: appConfig
           pretty: true
         files:
-          'build/html/main.html': ['assets/main.jade']
-          'build/html/index.html': ['assets/index.jade']
+          'build/html/main.html': ['assets/main.pug']
+          'build/html/index.html': ['assets/index.pug']
       release:
         options:
           data: appConfig
           pretty: false
         files:
-          'build/html/main.html': ['assets/main.jade']
-          'build/html/index.html': ['assets/index.jade']
+          'build/html/main.html': ['assets/main.pug']
+          'build/html/index.html': ['assets/index.pug']
 
     requirejs:
       css: options:
@@ -102,7 +102,7 @@ module.exports = (grunt) ->
         livereload: true
       config:
         files: ['assets/config.json']
-        tasks: ['jade']
+        tasks: ['pug']
       js:
         files: ['assets/js/**/*.js']
         tasks: ['requirejs', 'default']
@@ -110,8 +110,8 @@ module.exports = (grunt) ->
         files: ['assets/less/**/*.less']
         tasks: ['default']
       templates:
-        files: ['assets/**/*.jade']
-        tasks: ['jade:compile']
+        files: ['assets/**/*.pug']
+        tasks: ['pug:compile']
 
     connect:
       server:
@@ -131,7 +131,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'clean:build'
     'uglify:dist'
-    'jade:compile'
+    'pug:compile'
     'css'
   ]
 
@@ -156,7 +156,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'dist', [
     'default'
-    'jade:release'
+    'pug:release'
     'requirejs:css'
     'clean:dist'
     'smoosher'
