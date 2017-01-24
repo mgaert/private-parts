@@ -4,33 +4,20 @@ html(lang='en')
   meta(name="viewport", content="width=device-width")
   link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css')
 
+  - var options = pageOptions[0]
   body
     div.pp-wrapper
-      each option in pageOptions
-        if (pageOptions.option == headerImage)
-          - if (option.headerImage == '') {
-            section.privacy-policy-intro.pp-container
-              div.privacy-policy-intro-copy
-                each option in pageOptions
-                  h1!= option.headline
-                  p!= option.subHeading
-          - }
-          - else {
-            section.privacy-policy-intro.pp-container
-              each option in pageOptions
-                .privacy-policy-branding
-                  each option in pageOptions
-                    img.pp-logo(src=option.headerImage)
-
-                div.privacy-policy-intro-copy
-                  each option in pageOptions
-                    h1!= option.headline
-                    p!= option.subHeading
-          - }
+      section.privacy-policy-intro.pp-container
+        - if (options.headerImage != '') {
+          .privacy-policy-branding
+          img.pp-logo(src=options.headerImage)
+        - }
+        div.privacy-policy-intro-copy
+          h1!= options.headline
+          p!= options.subHeading
 
       include main
 
-      each option in pageOptions
-        section.privacy-policy-footer
-          p!= option.footerContent
+      section.privacy-policy-footer
+        p!= options.footerContent
 
