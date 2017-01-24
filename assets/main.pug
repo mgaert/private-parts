@@ -54,48 +54,18 @@ mixin module(category, type)
             - }
   - }
 
-mixin mobileModuleCollect(category, type)
-  div(class=['mobileModule', category.class, 'pp-hide-detail'])
-    div.module-header.clearfix
-      if(type == "collect")
-        div.info-button-spacer
-      h3.module-title= category.name
-      div.module-definition.pp-hide-this
-        p= category.description
-      div.module-close.dingbat-icon.dingbats-misc-x
-    div.module-options-list
-      ul
-        h4 Data Collected
-        - if (category.options.length > 0){
-            each item in category.options
-              li!= item
-        - }
-        - else{
-            p!= category.emptyText
-        - }
-    div.module-footer-nav
-      ul.clearfix
-        each category in collected
-          li
-            - if (category.options.length > 0) {
-              span(class=['dingbat-icon', 'dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
-            - }
-            - else {
-              span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
-            - }
-
-mixin mobileModuleShare(category)
-  - if (category.options.length > 0) {
-    div(class=['mobileModule', 'shared-category', category.class, 'pp-hide-detail', 'mobile-shared'])
+mixin mobileModule(category, type)
+  if type == 'collect'
+    div(class=['mobileModule', category.class, 'pp-hide-detail'])
       div.module-header.clearfix
-        div.pp-info-button.dingbat-icon.dingbats-misc-rounded-info
+        div.info-button-spacer
         h3.module-title= category.name
         div.module-definition.pp-hide-this
           p= category.description
         div.module-close.dingbat-icon.dingbats-misc-x
       div.module-options-list
         ul
-          h4 Data Shared
+          h4 Data Collected
           - if (category.options.length > 0){
               each item in category.options
                 li!= item
@@ -105,7 +75,7 @@ mixin mobileModuleShare(category)
           - }
       div.module-footer-nav
         ul.clearfix
-          each category in shared
+          each category in collected
             li
               - if (category.options.length > 0) {
                 span(class=['dingbat-icon', 'dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
@@ -113,9 +83,10 @@ mixin mobileModuleShare(category)
               - else {
                 span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
               - }
-  - }
-  - else {
-    div(class=['mobileModule', category.class, 'pp-hide-detail'])
+
+  if type == 'share'
+    - if (category.options.length > 0) {
+      div(class=['mobileModule', 'shared-category', category.class, 'pp-hide-detail', 'mobile-shared'])
         div.module-header.clearfix
           div.pp-info-button.dingbat-icon.dingbats-misc-rounded-info
           h3.module-title= category.name
@@ -126,11 +97,11 @@ mixin mobileModuleShare(category)
           ul
             h4 Data Shared
             - if (category.options.length > 0){
-              each item in category.options
-                li!= item
+                each item in category.options
+                  li!= item
             - }
             - else{
-              p!= category.emptyText
+                p!= category.emptyText
             - }
         div.module-footer-nav
           ul.clearfix
@@ -142,52 +113,60 @@ mixin mobileModuleShare(category)
                 - else {
                   span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
                 - }
-  - }
+    - }
+    - else {
+      div(class=['mobileModule', category.class, 'pp-hide-detail'])
+          div.module-header.clearfix
+            div.pp-info-button.dingbat-icon.dingbats-misc-rounded-info
+            h3.module-title= category.name
+            div.module-definition.pp-hide-this
+              p= category.description
+            div.module-close.dingbat-icon.dingbats-misc-x
+          div.module-options-list
+            ul
+              h4 Data Shared
+              - if (category.options.length > 0){
+                each item in category.options
+                  li!= item
+              - }
+              - else{
+                p!= category.emptyText
+              - }
+          div.module-footer-nav
+            ul.clearfix
+              each category in shared
+                li
+                  - if (category.options.length > 0) {
+                    span(class=['dingbat-icon', 'dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
+                  - }
+                  - else {
+                    span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
+                  - }
+    - }
 
+mixin sectionShow(screenType, sectionType, categoryList, sectionHeader)
+  section(class='content-module ' + sectionType + 'ed')
+    div.clearfix
+      h2!= sectionHeader
+      if screenType == 'mobile'
+        p Click below to learn more.
+      div.module-row.clearfix
+      - var count = 0
+      each category in categoryList
+        - count++
+        +module(category, sectionType)
+        if(screenType == 'mobile')
+          +mobileModule(category, sectionType)
+        else if (count % 3 == 0)
+          div.module-row.clearfix
+
+- var options = pageOptions[0]
 div.pp-desktop-show
-  section.content-module.collected
-    div.clearfix
-      each option in pageOptions
-        h2!= option.collectedSectionHeader
-      div.module-row.clearfix
-      - var count = 0;
-      each category in collected
-        - count++
-        +module(category, 'collect')
-        if count % 3 == 0
-          div.module-row.clearfix
-
-  section.content-module.shared.clearfix
-    div.clearfix
-      each option in pageOptions
-        h2!= option.sharedSectionHeader
-      div.module-row.clearfix
-      - var count = 0;
-      each category in shared
-        - count++
-        +module(category, 'share')
-        if count % 3 == 0
-          div.module-row.clearfix
-
+  +sectionShow('desktop', 'collect', collected, options.collectedSectionHeader)
+  +sectionShow('desktop', 'share', shared, options.sharedSectionHeader)
 div.pp-mobile-show
-  section.content-module.collected.clearfix
-    div.clearfix
-      each option in pageOptions
-        h2!= option.collectedSectionHeader
-      p Click below to learn more.
-      div.module-row.clearfix
-        each category in collected
-          +module(category, 'collect')
-          +mobileModuleCollect(category, 'collect')
-
-  section.content-module.shared.clearfix
-    div.clearfix
-      each option in pageOptions
-        h2!= option.sharedSectionHeader
-      div.module-row.clearfix.share
-        each category in shared
-          +module(category, 'share')
-          +mobileModuleShare(category, 'share')
+  +sectionShow('mobile', 'collect', collected, options.collectedSectionHeader)
+  +sectionShow('mobile', 'share', shared, options.sharedSectionHeader)
 
 script(src='../../assets/js/js.min.js')
 script(src='../../assets/js/custom.js')
