@@ -1,6 +1,6 @@
 window.onload = function(){
 
-	var showDefinition = document.querySelectorAll('.pp-desktop-show #shared .module-title, .pp-desktop-show #shared .module-icon');
+	var showDefinition = document.querySelectorAll('.pp-desktop-show .shared .module-title, .pp-desktop-show .shared .module-icon');
 	for(var a = 0; a<showDefinition.length; a++) {
 		showDefinition[a].onclick = function(){
 				this.parentNode.querySelector('.module-definition').classList.toggle('pp-show-definition');
@@ -12,11 +12,14 @@ window.onload = function(){
 	var moduleClick = document.querySelectorAll('.pp-mobile-show .module');
 	for(var b = 0; b<moduleClick.length; b++){
 		moduleClick[b].onclick = function(){
-			var targetClass = this.getAttribute('class');
-			var myRegex = /(module).(sharedCategory)?(nonShared)?\s/g;
-			var iconRegex = /(module).(sharedCategory)?(nonShared)?\s/g;
-			var toShow = targetClass.replace(myRegex, '.mobileModule.');
-			var iconActive = targetClass.replace(iconRegex, '');
+			var removeClasses = ['module', 'shared-category', 'module-shared-data'];
+			var showClass = Array.from(this.classList).filter(function(value){
+				return removeClasses.indexOf(value) == -1;
+			});
+
+			var toShow = '.mobileModule.' + showClass[0];
+			var iconActive = showClass[0];
+
 			var allIcons = document.querySelectorAll('[data-attr="'+iconActive+'"]');
 			for(var c = 0; c<allIcons.length; c++){
 				allIcons[c].parentNode.className = 'pp-active';

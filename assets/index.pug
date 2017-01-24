@@ -9,14 +9,14 @@ html(lang='en')
       each option in pageOptions
         if (pageOptions.option == headerImage)
           - if (option.headerImage == '') {
-            section#privacy-policy-intro.pp-container
+            section.privacy-policy-intro.pp-container
               div.privacy-policy-intro-copy
                 each option in pageOptions
                   h1!= option.headline
                   p!= option.subHeading
           - }
           - else {
-            section#privacy-policy-intro.pp-container
+            section.privacy-policy-intro.pp-container
               each option in pageOptions
                 .privacy-policy-branding
                   each option in pageOptions
@@ -31,6 +31,6 @@ html(lang='en')
       include main
 
       each option in pageOptions
-        section#privacy-policy-copy-footer
+        section.privacy-policy-footer
           p!= option.footerContent
 

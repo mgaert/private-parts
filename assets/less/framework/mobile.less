@@ -7,43 +7,41 @@
   span.pp-triangle {
     display: none;
   }
-  div.pp-mobile-show {
+  .pp-mobile-show {
     display: block;
   }
-  div.pp-desktop-show {
+  .pp-desktop-show {
     display: none;
+  }
+  section {
+    padding-bottom: 3em;
+    text-align: center;
   }
   /**
   *
   * Marketing Copy and Header
   *
   **/
-  section#privacy-policy-intro {
-    padding-bottom: 4em;
-    text-align: center;
-    .privacy-policy-branding {
+  .privacy-policy-branding {
+    display: block;
+    img {
+      margin: auto;
+      margin-top: 1em;
+      margin-bottom: 1em;
       display: block;
-      text-align: center;
-      img {
-        margin: auto;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        display: block;
-      }
     }
-    .privacy-policy-intro-copy {
-      h1 {
-        font-size: 2.1em;
-        line-height: 1.2;
-        text-align: center;
-        margin-top: 0;
-      }
-      p {
-        margin: auto;
-        margin-top: 1em;
-        text-align: center;
-        max-width: 250px;
-      }
+  }
+  .privacy-policy-intro-copy {
+    h1 {
+      font-size: 2.1em;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    p {
+      margin: auto;
+      margin-top: 1em;
+      text-align: center;
+      max-width: 250px;
     }
   }
   /**
@@ -52,48 +50,40 @@
   *
   **/
   .pp-wrapper {
-  h3.module-title.dingbats-misc-rounded-check.pp-desktop-show, h3.module-title.dingbats-misc-rounded-x.pp-desktop-show, h3.module-title.pp-desktop-show {
-    display: none;
-  }
-  h3.module-title.pp-mobile-show, h3.module-title.mobile-title.pp-mobile-show {
-    display: block;
-  }
-  .dingbats-misc-corner-flag.mobile-share-icon {
-    display: block;
-    position: absolute;
-    height:auto;
-    font-size: 3.5em;
-    margin-top: -0.101em;
-    color: darken(@branding-color, 10%);
-    &.not-sharing {
-      color: darken(@dark-background-color, 60%);
-    }
-  }
-  .dingbats-misc-rounded-x, .dingbats-misc-rounded-check, .dingbats-misc-corner-flag {
-    &:before {
+    .mobile-share-icon {
       display: block;
       position: absolute;
     }
+    .dingbats-misc-rounded-x, .dingbats-misc-rounded-check, .dingbats-misc-corner-flag {
+      &:before {
+        display: block;
+        position: absolute;
+      }
+    }
+    .not-sharing {
+      color: darken(@dark-background-color, 60%);
+    }
+    .dingbats-misc-corner-flag {
+      height:auto;
+      font-size: 3.5em;
+      margin-top: -0.101em;
+      color: darken(@branding-color, 10%);
+    }
+    .dingbats-misc-rounded-x {
+      font-size: 1.7em;
+      margin-left: 0.3em;
+      margin-top: -0.45em;
+      color: @background-color;
+    }
+    .dingbats-misc-rounded-check {
+      font-size: 1.7em;
+      margin-left: 0.3em;
+      margin-top: -0.45em;
+      color: @background-color;
+    }
   }
-  .dingbats-misc-rounded-x.mobile-share-icon {
-    display: block;
-    position: absolute;
-    font-size: 1.7em;
-    margin-left: 0.3em;
-    margin-top: -0.45em;
-    color: @background-color;
-  }
-  .dingbats-misc-rounded-check.mobile-share-icon {
-    display: block;
-    position: absolute;
-    font-size: 1.7em;
-    margin-left: 0.3em;
-    margin-top: -0.45em;
-    color: @background-color;
-  }
-}
 
-  section#collected, section#shared {
+  .content-module {
     padding: 3em 0;
     h2 {
       font-weight: bold;
@@ -118,13 +108,14 @@
       text-align: center;
     }
     .module {
+      box-sizing: border-box;
       float: left;
       width: 31%;
       min-width: 8.5em;
       max-width: 30em;
       height: 100%;
-      min-height: @module-height;
-      max-height: @module-height;
+      min-height: @module-height + 2;
+      max-height: @module-height + 2;
       margin:1.05% 1%;
       padding: 1em 0;
       text-align: center;
@@ -138,7 +129,7 @@
         font-size: 3em;
       }
     }
-    h3.module-title {
+    .module-title {
       max-width: 80%;
       margin: 0 auto;
       cursor: pointer;
@@ -154,7 +145,7 @@
   * Collected
   *
   **/
-  section#collected {
+  .collected {
     h2 ~ p {
       margin-top: 0.5em;
       margin-bottom: 0;
@@ -169,10 +160,10 @@
         color: @background-color;
       }
     }
-    h3.module-title {
+    .module-title {
       color: @background-color;
     }
-   .module-definition {
+    .module-definition {
       display: none;
     }
   }
@@ -181,25 +172,24 @@
   * Shared
   *
   **/
-  section#shared {
+  .shared {
     .module {
       background: @dark-background-color;
       box-shadow: 0 0.15em 0 darken(@dark-background-color, 10%);
+      //padding: 0;
     }
-    h3.module-title {
+    .module-title {
       color: darken(@dark-background-color, 40%);
     }
-    .share {
-      .module.sharedCategory {
-        box-shadow: 0 0.15em 0 darken(@branding-color, 10%);
-        background: @branding-color;
+    .module-shared-data {
+      box-shadow: 0 0.15em 0 darken(@branding-color, 10%);
+      background: @branding-color;
+      color: @background-color;
+      .module-title {
         color: @background-color;
-        h3.module-title {
-          color: @background-color;
-        }
-        .pp-icon {
-          color: @background-color;
-        }
+      }
+      .pp-icon {
+        color: @background-color;
       }
     }
   }
@@ -226,6 +216,7 @@
       background: darken(@dark-background-color, 10%);
     }
     .module-header {
+      box-sizing: border-box;
       position: relative;
       text-align: left;
       top: 0;
@@ -246,10 +237,10 @@
       border-radius: 0.325em;
       background: darken(@dark-background-color, 10%);
       box-shadow: 0 0.15em 0 darken(@dark-background-color, 20%);
-      &.pp-active-info-button {
-        background: darken(@dark-background-color, 20%);
-        box-shadow: 0 0.15em 0 darken(@dark-background-color, 10%);
-      }
+    }
+    .pp-active-info-button {
+      background: darken(@dark-background-color, 20%);
+      box-shadow: 0 0.15em 0 darken(@dark-background-color, 10%);
     }
     .pp-info-button-spacer {
       display: none;
@@ -265,8 +256,8 @@
     div.module-close {
       height: 3.75em;
       position: absolute;
-      top: 0em;
-      right: 0em;
+      top: 0;
+      right: 0;
       font-size: 2em;
       padding-left: 2em;
       padding-right: 0.5em;
@@ -334,10 +325,10 @@
       }
     }
   }
-  #collected, #shared {
+  .content-module {
     .mobileModule {
       .module-header {
-        h3.module-title {
+        .module-title {
           font-size: 1.8em;
           display: inline-block;
           left: 0;
@@ -347,11 +338,9 @@
       }
       .module-footer-nav {
         ul {
-          li {
-            &.pp-active {
-              .pp-footer-icon {
-                color: @background-color;
-              }
+          .pp-active {
+            .pp-footer-icon {
+              color: @background-color;
             }
           }
           .pp-footer-icon {
@@ -361,7 +350,7 @@
       }
     }
   }
-  #collected {
+  .collected {
     .mobileModule {
       .module-header {
         background: @branding-color;
@@ -371,7 +360,7 @@
             color: darken(@branding-color, 30%);
           }
         }
-        h3.module-title {
+        .module-title {
           margin-left: 12%;
           color: @background-color;
         }
@@ -385,51 +374,9 @@
       }
     }
   }
-  #shared {
+  .shared {
     .share {
       .mobileModule {
-        &.sharedCategory {
-          .module-header {
-            background: @branding-color;
-            .module-title {
-              color: @background-color;
-            }
-            .module-definition {
-              p {
-                color: @background-color;
-              }
-            }
-            div.module-close {
-              color: darken(@branding-color, 20%);
-              &:hover {
-                color: darken(@branding-color, 30%);
-              }
-            }
-            .pp-info-button {
-              color: @background-color;
-              background: darken(@branding-color, 10%);
-              box-shadow: 0 0.15em 0 darken(@branding-color, 20%);
-              &.pp-active-info-button {
-                box-shadow: 0 0.15em 0 darken(@branding-color, 10%);
-                background: darken(@branding-color, 20%);
-              }
-            }
-          }
-          .module-footer-nav {
-            ul {
-              li {
-                &.pp-active {
-                  background: darken(@dark-background-color, 60%);
-                  .pp-footer-icon {
-                    &.shared {
-                     color: @dark-background-color;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
         .module-header {
           background: @dark-background-color;
         }
@@ -446,19 +393,51 @@
         .module-footer-nav {
           ul {
             li {
-              &.pp-active {
-                .pp-footer-icon {
-                  &.shared {
-                   color: @background-color;
-                  }
-                }
+              .shared {
+               color: darken(@dark-background-color, 60%);
               }
             }
-            li {
-              .pp-footer-icon {
-                &.shared {
-                 color: darken(@dark-background-color, 60%);
-                }
+            .pp-active {
+              .shared {
+               color: @background-color;
+              }
+            }
+          }
+        }
+      }
+      .mobile-shared {
+        .module-header {
+          background: @branding-color;
+          .module-title {
+            color: @background-color;
+          }
+          .module-definition {
+            p {
+              color: @background-color;
+            }
+          }
+          div.module-close {
+            color: darken(@branding-color, 20%);
+            &:hover {
+              color: darken(@branding-color, 30%);
+            }
+          }
+          .pp-info-button {
+            color: @background-color;
+            background: darken(@branding-color, 10%);
+            box-shadow: 0 0.15em 0 darken(@branding-color, 20%);
+          }
+          .pp-active-info-button {
+            box-shadow: 0 0.15em 0 darken(@branding-color, 10%);
+            background: darken(@branding-color, 20%);
+          }
+        }
+        .module-footer-nav {
+          ul {
+            .pp-active {
+              background: darken(@dark-background-color, 60%);
+              .shared {
+               color: @dark-background-color;
               }
             }
           }
@@ -466,10 +445,8 @@
       }
     }
   }
-  section#privacy-policy-copy-footer {
+  .privacy-policy-footer {
     border-top: 0.0625em solid darken(@dark-background-color, 10%);
-    padding: 4em 0;
-    text-align: center;
     p {
       color: darken(@dark-background-color, 50%);
       font-size: 1.25em;
@@ -480,8 +457,9 @@
 }
 
 @media all and (max-width: 30.1875em) {
-  section#collected, section#shared {
+  .content-module {
     .module {
+      box-sizing: border-box;
       float: left;
       width: 45%;
       min-width: 8em;
@@ -489,7 +467,7 @@
       height: 100%;
       min-height: @module-height;
       max-height: @module-height;
-      margin:3% 0 0% 3.5%;
+      margin:3% 0 0 3.5%;
       padding: 1em 0;
       text-align: center;
       .module-title {
@@ -502,8 +480,9 @@
 }
 
 @media all and (orientation: landscape) and (max-width: 35em) {
-  section#shared, section#collected  {
+  .content-module  {
     .module {
+      box-sizing: border-box;
       float: left;
       width: 25%;
       min-width: @module-height;
@@ -511,7 +490,7 @@
       height: 100%;
       min-height: 4em;
       max-height: 4em;
-      margin:3% 0 0% 3.5%;
+      margin:3% 0 0 3.5%;
       padding: 1em 0;
       text-align: center;
       .module-title {
@@ -519,13 +498,13 @@
       }
     }
   }
-  section#shared {
+  .shared {
     .module {
       background: @dark-background-color;
       box-shadow: 0 0.15em 0 darken(@dark-background-color, 10%);
     }
   }
-  section#collected {
+  .collected {
     .module {
       box-shadow: 0 0.15em 0 darken(@branding-color, 15%);
     }

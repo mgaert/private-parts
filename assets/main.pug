@@ -2,15 +2,15 @@ link(href='../css/main.css', media='all', rel='stylesheet', type='text/css', inl
 
 mixin module(category, type)
   - if (category.options.length > 0) {
-      div(class=['module', 'sharedCategory', category.class])
+      div(class=['module', 'shared-category', 'module-shared-data', category.class])
         if(type == 'share')
-          span.dingbats-misc-corner-flag.mobile-share-icon
-          span.dingbats-misc-rounded-check.mobile-share-icon
+          span.dingbat-icon.dingbats-misc-corner-flag.mobile-share-icon
+          span.dingbat-icon.dingbats-misc-rounded-check.mobile-share-icon
         div.module-icon
-          span(class=['dingbats-'+category.class, 'pp-icon'])
+          span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-icon'])
         - if (type == 'share') {
-          h3.module-title.dingbats-misc-rounded-check.pp-desktop-show= category.name
-            span.dingbats-misc-play.pp-triangle
+          h3.module-title.dingbat-icon.dingbats-misc-rounded-check.pp-desktop-show= category.name
+            span.dingbat-icon.dingbats-misc-play.pp-triangle
           h3.module-title.mobile-title.pp-mobile-show= category.name
           div.module-definition.pp-hide-this
             p= category.description
@@ -32,13 +32,13 @@ mixin module(category, type)
   - else {
       div(class=['module', 'nonShared', category.class])
         if(type == 'share')
-          span.dingbats-misc-corner-flag.mobile-share-icon.not-sharing
-          span.dingbats-misc-rounded-x.mobile-share-icon
+          span.dingbat-icon.dingbats-misc-corner-flag.mobile-share-icon.not-sharing
+          span.dingbat-icon.dingbats-misc-rounded-x.mobile-share-icon
         div.module-icon
-          span(class=['dingbats-'+category.class, 'pp-icon'])
+          span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-icon'])
         - if (type == 'share') {
-        h3.module-title.dingbats-misc-rounded-x.pp-desktop-show= category.name
-          span.dingbats-misc-play.pp-triangle
+        h3.module-title.dingbat-icon.dingbats-misc-rounded-x.pp-desktop-show= category.name
+          span.dingbat-icon.dingbats-misc-play.pp-triangle
         h3.module-title.mobile-title.pp-mobile-show= category.name
         div.module-definition.pp-hide-this
           p= category.description
@@ -62,7 +62,7 @@ mixin mobileModuleCollect(category, type)
       h3.module-title= category.name
       div.module-definition.pp-hide-this
         p= category.description
-      div.module-close.dingbats-misc-x
+      div.module-close.dingbat-icon.dingbats-misc-x
     div.module-options-list
       ul
         h4 Data Collected
@@ -78,21 +78,21 @@ mixin mobileModuleCollect(category, type)
         each category in collected
           li
             - if (category.options.length > 0) {
-              span(class=['dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
+              span(class=['dingbat-icon', 'dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
             - }
             - else {
-              span(class=['dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
+              span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
             - }
 
 mixin mobileModuleShare(category)
   - if (category.options.length > 0) {
-    div(class=['mobileModule', 'sharedCategory', category.class, 'pp-hide-detail'])
+    div(class=['mobileModule', 'shared-category', category.class, 'pp-hide-detail', 'mobile-shared'])
       div.module-header.clearfix
-        div.pp-info-button.dingbats-misc-rounded-info
+        div.pp-info-button.dingbat-icon.dingbats-misc-rounded-info
         h3.module-title= category.name
         div.module-definition.pp-hide-this
           p= category.description
-        div.module-close.dingbats-misc-x
+        div.module-close.dingbat-icon.dingbats-misc-x
       div.module-options-list
         ul
           h4 Data Shared
@@ -108,20 +108,20 @@ mixin mobileModuleShare(category)
           each category in shared
             li
               - if (category.options.length > 0) {
-                span(class=['dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
+                span(class=['dingbat-icon', 'dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
               - }
               - else {
-                span(class=['dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
+                span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
               - }
   - }
   - else {
     div(class=['mobileModule', category.class, 'pp-hide-detail'])
         div.module-header.clearfix
-          div.pp-info-button.dingbats-misc-rounded-info
+          div.pp-info-button.dingbat-icon.dingbats-misc-rounded-info
           h3.module-title= category.name
           div.module-definition.pp-hide-this
             p= category.description
-          div.module-close.dingbats-misc-x
+          div.module-close.dingbat-icon.dingbats-misc-x
         div.module-options-list
           ul
             h4 Data Shared
@@ -137,15 +137,15 @@ mixin mobileModuleShare(category)
             each category in shared
               li
                 - if (category.options.length > 0) {
-                  span(class=['dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
+                  span(class=['dingbat-icon', 'dingbats-'+category.class, 'shared', 'pp-footer-icon'], data-attr=category.class)
                 - }
                 - else {
-                  span(class=['dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
+                  span(class=['dingbat-icon', 'dingbats-'+category.class, 'pp-footer-icon'], data-attr=category.class)
                 - }
   - }
 
 div.pp-desktop-show
-  section#collected
+  section.content-module.collected
     div.clearfix
       each option in pageOptions
         h2!= option.collectedSectionHeader
@@ -157,7 +157,7 @@ div.pp-desktop-show
         if count % 3 == 0
           div.module-row.clearfix
 
-  section#shared.clearfix
+  section.content-module.shared.clearfix
     div.clearfix
       each option in pageOptions
         h2!= option.sharedSectionHeader
@@ -170,7 +170,7 @@ div.pp-desktop-show
           div.module-row.clearfix
 
 div.pp-mobile-show
-  section#collected.clearfix
+  section.content-module.collected.clearfix
     div.clearfix
       each option in pageOptions
         h2!= option.collectedSectionHeader
@@ -180,7 +180,7 @@ div.pp-mobile-show
           +module(category, 'collect')
           +mobileModuleCollect(category, 'collect')
 
-  section#shared.clearfix
+  section.content-module.shared.clearfix
     div.clearfix
       each option in pageOptions
         h2!= option.sharedSectionHeader

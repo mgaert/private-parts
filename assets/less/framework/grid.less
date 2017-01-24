@@ -1,7 +1,12 @@
 /* #Base 960 Grid
 ================================================== */
 
-.pp-wrapper .pp-container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+.pp-wrapper .pp-container {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+  padding: 0;
+}
 /* Base Grid */
 
 
@@ -13,7 +18,9 @@
 /* Note: Design for a width of 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-    .pp-wrapper .pp-container                  { width: 768px; }
+  .pp-wrapper .pp-container {
+    width: 768px;
+  }
 }
 
 
@@ -23,7 +30,9 @@
 /* Note: Design for a width of 320px */
 
 @media only screen and (max-width: 767px) {
-    .pp-wrapper .pp-container { width: 300px; }
+  .pp-wrapper .pp-container {
+    width: 300px;
+  }
 }
 
 
@@ -33,7 +42,9 @@
 /* Note: Design for a width of 480px */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .pp-wrapper .pp-container { width: 420px; }
+  .pp-wrapper .pp-container {
+    width: 420px;
+  }
 }
 
 
@@ -41,7 +52,13 @@
 ================================================== */
 
 /* Self Clearing Goodness */
-.pp-container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.pp-container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 
 /* Use clearfix class on parent to clear nested columns,
 or wrap each row of columns in a <div class="row"> */
@@ -54,13 +71,16 @@ or wrap each row of columns in a <div class="row"> */
   overflow: hidden;
   visibility: hidden;
   width: 0;
-  height: 0; }
+  height: 0;
+}
 .row:after,
 .clearfix:after {
-  clear: both; }
+  clear: both;
+}
 .row,
 .clearfix {
-  zoom: 1; }
+  zoom: 1;
+}
 
 /* You can also use a <br class="clear" /> to clear columns */
 .clear {

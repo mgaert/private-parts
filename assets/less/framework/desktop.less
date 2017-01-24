@@ -1,8 +1,8 @@
 .pp-wrapper {
-  h3.module-title.dingbats-misc-rounded-check.pp-desktop-show, h3.module-title.dingbats-misc-rounded-x.pp-desktop-show, h3.module-title.pp-desktop-show {
+  h3.pp-desktop-show {
     display: block;
   }
-  h3.module-title.pp-mobile-show, h3.module-title.mobile-title.pp-mobile-show, .dingbats-misc-rounded-check.mobile-share-icon, .dingbats-misc-corner-flag.mobile-share-icon, .dingbats-misc-rounded-x.mobile-share-icon {
+  h3.pp-mobile-show, .mobile-share-icon {
     display: none;
   }
   h3 {
@@ -19,35 +19,31 @@
     width: 90%;
     margin: auto;
   }
-}
-  section#privacy-policy-intro {
-    padding: 4em 0 5em;
-    .privacy-policy-branding {
-      display: block;
-      text-align: center;
-      .pp-logo {
-        min-height: 12.5em;
-      }
-      img {
-        max-width: 100%;
-        margin-top: 1em;
-        display: inline-block;
-      }
-    }
-    .privacy-policy-intro-copy {
-      text-align: center;
-      h1 {
-        font-weight: bold;
-      }
-      h1, p {
-        margin-top: 1em;
-      }
-    }
-  }
-  section#privacy-policy-copy-footer {
-    border-top: 0.0625em solid darken(@dark-background-color, 10%);
+  section {
     padding: 4em 0;
     text-align: center;
+  }
+  .privacy-policy-branding {
+    display: block;
+    .pp-logo {
+      min-height: 12.5em;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 1em;
+      display: inline-block;
+    }
+  }
+  .privacy-policy-intro-copy {
+    h1 {
+      font-weight: bold;
+    }
+    h1, p {
+      margin-top: 1em;
+    }
+  }
+  .privacy-policy-footer {
+    border-top: 0.0625em solid darken(@dark-background-color, 10%);
     p {
       color: darken(@dark-background-color, 50%);
       font-size: 1.25em;
@@ -55,7 +51,7 @@
       margin: auto;
     }
   }
-  span.pp-triangle {
+  .pp-triangle {
     margin-left: 0.24em;
     font-size: 1em;
     line-height: 1.4;
@@ -63,24 +59,18 @@
     display: inline-block;
     transition: all 0.01s ease-in-out;
     transform: rotate(90deg) translate3d(0em, 0em, 0);
-    &.pp-open-triangle {
-      display: inline-block;
-      transition: all 0.01s ease-in-out;
-      transform: rotate(-90deg) translate3d(0em, 0em, 0);
-    }
+  }
+  .pp-open-triangle {
+    display: inline-block;
+    transition: all 0.01s ease-in-out;
+    transform: rotate(-90deg) translate3d(0em, 0em, 0);
   }
 
-  /**
-  *
-  * Module Styles
-  *
-  **/
-#collected, #shared {
+  .content-module {
     position: relative;
-    padding: 6em 0 5.5em 0;
-    text-align: center;
     width: 100%;
     margin:auto;
+    padding-top: 2em;
     & > div {
       clear: both;
       max-width: 68.75em;
@@ -91,8 +81,8 @@
       color: darken(@dark-background-color, 61%);
       margin-bottom: 1em;
     }
-}
-  #collected {
+  }
+  .collected {
     background: lighten(@dark-background-color, 1.8%);
     .module-row {
       border-top: 0.0625em solid darken(@dark-background-color, 4.8%);
@@ -104,10 +94,10 @@
       color: @dark-background-headline-color;
     }
     .module-options-list {
-      margin-left: 0em;
+      margin-left: 0;
     }
   }
-  #shared {
+  .shared {
     background: @background-color;
     .module-title, .pp-triangle {
       cursor: pointer;
@@ -136,7 +126,7 @@
         }
       }
     }
-    .module.sharedCategory {
+    .module-shared-data {
       .module-title, .pp-triangle {
         cursor: pointer;
         color: @branding-color;
@@ -151,8 +141,6 @@
       }
     }
   }
-
-.pp-wrapper {
   .module-row {
     display: block;
     margin: 0 auto 1em auto;

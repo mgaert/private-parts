@@ -31,11 +31,13 @@ module.exports = (grunt) ->
       dist:
         src: 'assets/js/framework/*.js'
         dest: 'assets/js/js.min.js'
-      live:
+      compile:
         src: 'assets/js/framework/*.js'
         dest: 'assets/js/js.min.js'
         options:
           beautify: true
+          sourceMap: true
+          sourceMapName: 'assets/js/js.min.js.map'
 
     pug:
       compile:
@@ -110,6 +112,7 @@ module.exports = (grunt) ->
         csslint:
           'qualified-headings': false
           'unique-headings': false
+          'box-sizing': false
 
     watch:
       options:
@@ -144,7 +147,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'default', [
     'clean:build'
-    'uglify:dist'
+    'uglify:compile'
     'pug:compile'
     'css'
   ]
@@ -159,7 +162,6 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'live', [
     'default'
-    'uglify:live'
     'connect'
     'watch'
   ]
