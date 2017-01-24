@@ -145,7 +145,8 @@ mixin mobileModule(category, type)
     - }
 
 mixin sectionShow(screenType, sectionType, categoryList, sectionHeader)
-  section(class='content-module ' + sectionType + 'ed')
+  - var sectionSuffix = sectionType == 'share' ? 'd' : 'ed'
+  section(class='content-module ' + sectionType + sectionSuffix)
     div.clearfix
       h2!= sectionHeader
       if screenType == 'mobile'
